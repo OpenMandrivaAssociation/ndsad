@@ -11,6 +11,7 @@ Group: Monitoring
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 BuildRequires: libpcap-devel
+BuildRoot: %{_tmppath}/%{name}-%{version}-root
 
 %description
 The NetUP ndsad utility captures IP-traffic from network interfaces and
