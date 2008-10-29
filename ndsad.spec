@@ -1,7 +1,7 @@
 Summary: NDSAD captures traffic information and translates it into Cisco NetFlow format
 Name: ndsad
 Version: 1.33
-Release: %mkrel 4
+Release: %mkrel 5
 Source: http://puzzle.dl.sourceforge.net/sourceforge/ndsad/ndsad-%{version}.tgz
 Source1: ndsad.init
 Patch0: ndsad.conf.patch
@@ -11,7 +11,7 @@ Group: Monitoring
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 BuildRequires: libpcap-devel
-BuildRoot: %{_tmppath}/%{name}-%{version}-root
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The NetUP ndsad utility captures IP-traffic from network interfaces and
