@@ -1,7 +1,7 @@
 Summary: NDSAD captures traffic information and translates it into Cisco NetFlow format
 Name: ndsad
 Version: 1.33
-Release: %mkrel 5
+Release: %mkrel 6
 Source: http://puzzle.dl.sourceforge.net/sourceforge/ndsad/ndsad-%{version}.tgz
 Source1: ndsad.init
 Patch0: ndsad.conf.patch
