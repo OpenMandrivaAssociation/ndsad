@@ -1,4 +1,4 @@
-Summary: NDSAD captures traffic information and translates it into Cisco NetFlow format
+Summary: Captures traffic information and translates it into Cisco NetFlow format
 Name: ndsad
 Version: 1.33
 Release: %mkrel 5
