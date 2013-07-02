@@ -1,7 +1,7 @@
 Summary: Captures traffic information and translates it into Cisco NetFlow format
 Name: ndsad
 Version: 1.33
-Release: %mkrel 5
+Release: 6
 Source: http://puzzle.dl.sourceforge.net/sourceforge/ndsad/ndsad-%{version}.tgz
 Source1: ndsad.init
 Patch0: ndsad.conf.patch
@@ -11,7 +11,6 @@ Group: Monitoring
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
 BuildRequires: libpcap-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The NetUP ndsad utility captures IP-traffic from network interfaces and
@@ -29,18 +28,16 @@ FreeBSD and ULOG on Linux for data source.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT%{_sbindir}
-mkdir -p $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d
-mkdir -p $RPM_BUILD_ROOT%{_mandir}/man5
-install -c -m 0755 -s ndsad $RPM_BUILD_ROOT%{_sbindir}/ndsad
-install -c -m 0700 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/rc.d/init.d/ndsad
-install -c -m 0644 ndsad.conf $RPM_BUILD_ROOT%{_sysconfdir}/ndsad.conf
-install -c -m 0644 ndsad.conf.5 $RPM_BUILD_ROOT%{_mandir}/man5/ndsad.conf.5
+mkdir %{buildroot}
+mkdir -p %{buildroot}%{_sbindir}
+mkdir -p %{buildroot}%{_sysconfdir}/rc.d/init.d
+mkdir -p %{buildroot}%{_mandir}/man5
+install -c -m 0755 -s ndsad %{buildroot}%{_sbindir}/ndsad
+install -c -m 0700 %{SOURCE1} %{buildroot}%{_sysconfdir}/rc.d/init.d/ndsad
+install -c -m 0644 ndsad.conf %{buildroot}%{_sysconfdir}/ndsad.conf
+install -c -m 0644 ndsad.conf.5 %{buildroot}%{_mandir}/man5/ndsad.conf.5
 
 %clean
-rm -rf $RPM_BUILD_ROOT
 
 %post
 %_post_service ndsad
@@ -49,7 +46,6 @@ rm -rf $RPM_BUILD_ROOT
 %_preun_service ndsad
 
 %files
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog COPYING INSTALL README
 %attr(755,root,root) %{_sbindir}/ndsad
 %attr(644,root,root) %config(noreplace) %{_sysconfdir}/ndsad.conf
