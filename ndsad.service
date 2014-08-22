@@ -1,0 +1,18 @@
+[Unit]
+Description=UTM Billing System ndsad daemon
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/echo -n "Starting ndsad: "
+ExecStart=/usr/sbin/ndsad -d -w -c /etc/ndsad.conf > /dev/null 2>&1
+ExecStart=/bin/echo
+ExecStart=/bin/touch /var/lock/subsys/ndsad
+
+ExecStop=/bin/echo -n "Stopping ndsad: "
+ExecStop=/bin/kill `cat /var/run/ndsad.pid`
+ExecStop=/bin/echo
+ExecStop=/bin/rm -f /var/lock/subsys/ndsad
+
+[Install]
+WantedBy=multi-user.target
