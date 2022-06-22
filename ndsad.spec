@@ -3,7 +3,7 @@
 Summary:	NDSAD captures traffic information and translates it into Cisco NetFlow format
 Name:		ndsad
 Version:	1.33
-Release:	9
+Release:	10
 License:	GPLv2+
 Group:		Monitoring
 Url:		http://www.netup.biz
