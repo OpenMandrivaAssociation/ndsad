@@ -6,7 +6,7 @@ Version:	1.33
 Release:	10
 License:	GPLv2+
 Group:		Monitoring
-Url:		http://www.netup.biz
+Url:		https://www.netup.biz
 Source0:	http://puzzle.dl.sourceforge.net/sourceforge/ndsad/ndsad-%{version}.tgz
 Source1:	ndsad.service
 Patch0:		ndsad.conf.patch
